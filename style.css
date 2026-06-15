@@ -1,1 +1,209 @@
+/* ==========================================================================
+   PALETA DE CORES FUTURISTA & BIOTECH (Harmoniosa e sem poluição visual)
+   ========================================================================== */
+:root {
+    --bg-deep: #060d0a;          /* Fundo ultra-escuro com toque verde */
+    --accent-glow: #00ff87;      /* Verde neon tecnológico para detalhes e foco */
+    --accent-muted: #10b981;     /* Verde esmeralda para transições suaves */
+    --glass-bg: rgba(10, 25, 18, 0.7); /* Vidro escuro translúcido */
+    --glass-border: rgba(0, 255, 135, 0.15); /* Borda brilhante sutil */
+    --text-primary: #f1f5f9;     /* Branco tecnológico/asfaltado */
+    --text-muted: #94a3b8;       /* Cinza azulado para textos secundários */
+    --font-cyber: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
 
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-cyber);
+}
+
+/* Corpo da página com imagem de campo futurista e suavizada */
+body {
+    background: linear-gradient(135deg, rgba(6, 13, 10, 0.92), rgba(12, 38, 25, 0.88)), 
+                url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   CABEÇALHO FUTURISTA
+   ========================================================================== */
+header {
+    padding: 60px 20px 40px 20px;
+    text-align: center;
+    position: relative;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #ffffff, var(--accent-glow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    letter-spacing: 0.5px;
+}
+
+/* Linha decorativa laser sob o header */
+header::after {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
+    margin: 25px auto 0 auto;
+}
+
+/* ==========================================================================
+   CONTEÚDO PRINCIPAL
+   ========================================================================== */
+main {
+    max-width: 850px;
+    margin: 20px auto 80px auto;
+    padding: 0 20px;
+}
+
+.introducao {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.introducao h2 {
+    font-size: 1.5rem;
+    color: var(--accent-glow);
+    margin-bottom: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.introducao p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+/* Container de perguntas (Painel de Controle Glassmorphism) */
+.interativo-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.interativo-container h3 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   BOTÕES E ELEMENTOS INTERATIVOS
+   ========================================================================== */
+.faq-item {
+    margin-bottom: 20px;
+}
+
+/* O Botão Estilo Interface de Nave</h3> */
+.btn-pergunta {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 18px 24px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    text-align: left;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Efeito Hover do Botão Futurista */
+.btn-pergunta:hover {
+    background: rgba(0, 255, 135, 0.06);
+    border-color: var(--accent-glow);
+    box-shadow: 0 0 20px rgba(0, 255, 135, 0.15);
+    transform: translateY(-2px);
+    color: var(--accent-glow);
+}
+
+/* Ícone de mais/menos digital */
+.btn-pergunta span {
+    font-family: monospace;
+    font-size: 1.4rem;
+    color: var(--text-muted);
+    transition: color 0.3s;
+}
+
+.btn-pergunta:hover span {
+    color: var(--accent-glow);
+}
+
+/* Painel de Resposta Futurista */
+.resposta {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid transparent;
+    border-top: none;
+    padding: 0 24px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.resposta p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* Estado Ativo (Quando aberto pelo JavaScript) */
+.resposta.ativa {
+    max-height: 300px; /* Margem segura para o texto expandir */
+    padding: 20px 24px;
+    border-color: rgba(0, 255, 135, 0.1);
+    background: rgba(6, 13, 10, 0.4);
+}
+
+/* Se o botão estiver ativo, destaca o visual dele */
+.resposta.ativa + .btn-pergunta {
+    border-color: var(--accent-glow);
+}
+
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
+footer {
+    background: rgba(3, 8, 6, 0.85);
+    backdrop-filter: blur(10px);
+    color: var(--text-muted);
+    text-align: center;
+    padding: 30px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    position: relative;
+}
