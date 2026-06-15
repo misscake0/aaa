@@ -1,1 +1,210 @@
-oooi
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte, Futuro Sustentável</title>
+    <style>
+        /* Cores que lembram o campo e a natureza */
+        :root {
+            --verde-escuro: #1b4332;
+            --verde-principal: #2d6a4f;
+            --verde-claro: #d8f3dc;
+            --marrom-terra: #6c584c;
+            --palha: #adc178;
+            --fundo-suave: #f8f9fa;
+            --texto: #212529;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--fundo-suave);
+            color: var(--texto);
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: var(--verde-escuro);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--palha);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-style: italic;
+            color: var(--verde-claro);
+        }
+
+        /* Conteúdo Principal */
+        main {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .introducao {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .introducao h2 {
+            color: var(--marrom-terra);
+            margin-bottom: 15px;
+        }
+
+        /* Seção dos Botões Interativos */
+        .interativo-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 6px solid var(--verde-principal);
+        }
+
+        .interativo-container h3 {
+            color: var(--verde-principal);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Estilo do Bloco de Pergunta/Resposta */
+        .faq-item {
+            margin-bottom: 15px;
+        }
+
+        /* O Botão da Pergunta */
+        .btn-pergunta {
+            width: 100%;
+            background-color: var(--verde-claro);
+            color: var(--verde-escuro);
+            border: 2px solid var(--palha);
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: left;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-pergunta:hover {
+            background-color: var(--palha);
+            color: white;
+        }
+
+        /* Painel da Resposta (escondido por padrão) */
+        .resposta {
+            background-color: #f1f5f2;
+            border: 1px solid var(--verde-claro);
+            border-top: none;
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        /* Classe que o JavaScript vai ativar para mostrar a resposta */
+        .resposta.ativa {
+            max-height: 200px; /* Altura máxima para a animação funcionar */
+            padding: 15px 20px;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--marrom-terra);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Agro Forte, Futuro Sustentável</h1>
+        <p>O equilíbrio perfeito entre a produtividade do campo e a preservação do meio ambiente</p>
+    </header>
+
+    <main>
+        <section class="introducao">
+            <h2>Alimentando o mundo, protegendo a Terra</h2>
+            <p>A agricultura moderna enfrenta o desafio de produzir mais alimentos para uma população crescente, utilizando os recursos naturais de forma consciente e renovável.</p>
+        </section>
+
+        <section class="interativo-container">
+            <h3>Clique nas dúvidas abaixo para entender os desafios:</h3>
+
+            <div class="faq-item">
+                <button class="btn-pergunta" onclick="toggleResposta('res1')">
+                    Por que acontece a poluição no campo? <span>+</span>
+                </button>
+                <div id="res1" class="resposta">
+                    <p>A poluição no ambiente rural costuma acontecer pelo uso incorreto ou excessivo de defensivos químicos, descarte inadequado de embalagens plásticas e manejo incorreto do solo, o que pode contaminar lençóis freáticos e rios locais.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="btn-pergunta" onclick="toggleResposta('res2')">
+                    Como produzir sem agredir o meio ambiente? <span>+</span>
+                </button>
+                <div id="res2" class="resposta">
+                    <p>Através de práticas sustentáveis como o plantio direto (que protege o solo), a rotação de culturas, o uso de bioinsumos (defensivos naturais) e a integração lavoura-pecuária-floresta (ILPF).</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="btn-pergunta" onclick="toggleResposta('res3')">
+                    Qual o papel da tecnologia no agro sustentável? <span>+</span>
+                </button>
+                <div id="res3" class="resposta">
+                    <p>Drones, sensores e inteligência artificial ajudam o produtor a aplicar água e nutrientes na quantidade exata onde a planta precisa. Isso evita o desperdício de recursos e reduz drasticamente o impacto ambiental.</p>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Agro Forte & Sustentável. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function toggleResposta(idDaResposta) {
+            const resposta = document.getElementById(idDaResposta);
+            
+            // Alterna a classe 'ativa' que mostra/esconde o texto
+            resposta.classList.toggle('ativa');
+            
+            // Muda o sinal de + para - no botão correspondente
+            const botao = resposta.previousElementSibling;
+            const icone = botao.querySelector('span');
+            if (resposta.classList.contains('ativa')) {
+                icone.innerText = '−';
+            } else {
+                icone.innerText = '+';
+            }
+        }
+    </script>
+
+</body>
+</html>
